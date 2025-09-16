@@ -1,0 +1,18 @@
+[project]
+name = "camel-agent"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+  "pydantic>=2.7",
+  "networkx>=3.3",
+  "rich>=13.7"
+]
+[tool.black]
+line-length = 100
+target-version = ['py311']
+skip-string-normalization = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "policies*", "runs*"]  
+exclude = ["tests*", "docs*", "examples*"]
