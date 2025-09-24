@@ -6,9 +6,9 @@ class Decision(BaseModel):
     reason: str
 
 
-def deny(reason: str) -> Decision:
-    return Decision(allowed=False, reason=reason)
-
-
-def allow(reason: str = "ok") -> Decision:
+def allow(reason: str = "allowed") -> Decision:
     return Decision(allowed=True, reason=reason)
+
+
+def deny(reason: str = "denied") -> Decision:
+    return Decision(allowed=False, reason=reason)

@@ -1,4 +1,3 @@
-# tools/read_cloud_doc.py
 from core.capabilities import Val, Capability
 
 FAKE_DOCS = {
@@ -16,8 +15,14 @@ FAKE_DOCS = {
 
 
 def read_cloud_doc(doc_id: Val) -> Val:
-    key = doc_id.value  # <<< unwrap here
-    meta = FAKE_DOCS[key]
+    key = doc_id.value
+    meta = FAKE_DOCS.get(key)
+    if meta is None:
+        # return an empty val with CaMeL provenance (tool produced)
+        caps = Capability(
+            provenance={"type": "Tool", "tool_id": "cloud_drive", "inner": key}, readers="Public"
+        )
+        return Val(value="", caps=caps)
     caps = Capability(
         provenance={"type": "Tool", "tool_id": "cloud_drive", "inner": key},
         readers=meta["readers"],

@@ -1,5 +1,5 @@
 from typing import Callable, List
-from policies.email_policy import email_policy
+from .email_policy import email_policy
 
 
 def get_policies() -> List[Callable]:

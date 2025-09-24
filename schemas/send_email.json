@@ -1,0 +1,14 @@
+{
+  "name": "send_email",
+  "args": {
+    "to": { "type": "string", "semantic": "recipient_email" },
+    "subject": { "type": "string" },
+    "body": { "type": "string", "capability_relevant": true },
+    "attachment": {
+      "type": "doc|bytes",
+      "optional": true,
+      "capability_relevant": true
+    }
+  },
+  "side_effects": ["network"]
+}

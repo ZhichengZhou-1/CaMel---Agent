@@ -1,0 +1,11 @@
+{
+  "name": "read_cloud_doc",
+  "args": {
+    "doc_id": { "type": "string", "semantic": "document_identifier" }
+  },
+  "side_effects": ["io"],
+  "outputs": {
+    "text": { "type": "string" },
+    "readers": { "type": "set<string>" }
+  }
+}
